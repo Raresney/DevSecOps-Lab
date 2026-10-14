@@ -18,3 +18,8 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+def unsafe_example(user_input: str):
+    return eval(user_input)
+
