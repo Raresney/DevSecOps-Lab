@@ -25,3 +25,9 @@ jobs:
 
       - name: Run Bandit security scan
         run: bandit -r app -ll
+
+      - name: Install dependency scanner
+        run: python -m pip install pip-audit
+
+      - name: Audit Python dependencies
+        run: pip-audit -r requirements.txt
