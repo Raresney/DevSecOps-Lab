@@ -1,3 +1,4 @@
+
 name: Python CI
 
 on:
@@ -31,3 +32,13 @@ jobs:
 
       - name: Audit Python dependencies
         run: pip-audit -r requirements.txt
+
+  docker-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: docker build -t devsecops-app:${{ github.sha }} .
